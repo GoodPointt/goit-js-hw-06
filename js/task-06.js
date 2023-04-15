@@ -4,7 +4,7 @@ inputRef.addEventListener('blur', () => {
   const expectedLength = inputRef.getAttribute('data-length');
   const actualLength = inputRef.value.length;
 
-  if (actualLength >= expectedLength) {
+  if (actualLength === expectedLength) {
     inputRef.classList.add('valid');
     inputRef.classList.remove('invalid');
   } else {
