@@ -14,11 +14,10 @@ const images = [
 ];
 
 const galleryList = document.querySelector('.gallery');
-let galleryItems = '';
 
-images.forEach(({ url, alt }) => {
-  galleryItems += `<li><img src="${url}" alt="${alt}"></li>`;
-});
-console.log(galleryItems);
+const galleryItems = images.reduce(
+  (acc, { url, alt }) => acc + `<li><img src="${url}" alt="${alt}"></li>`,
+  ''
+);
 
 galleryList.insertAdjacentHTML('beforeend', galleryItems);
