@@ -3,17 +3,18 @@ const loginForm = document.querySelector('.login-form');
 loginForm.addEventListener('submit', event => {
   event.preventDefault();
 
-  const emailInput = loginForm.elements.email;
-  const passwordInput = loginForm.elements.password;
+  const emailInput = loginForm.elements.email.value;
+  const passwordInput = loginForm.elements.password.value;
 
-  if (emailInput.value === '' || passwordInput.value === '') {
-    alert('! ! ! Усі поля форми мають бути заповнені ! ! !');
-  } else {
+  if (emailInput === '' || passwordInput === '')
+    return alert('! ! ! Усі поля форми мають бути заповнені ! ! !');
+
+  {
     const formData = {
-      email: emailInput.value,
-      password: passwordInput.value,
+      email: emailInput,
+      password: passwordInput,
     };
     console.log(formData);
-    loginForm.reset();
+    event.target.reset();
   }
 });

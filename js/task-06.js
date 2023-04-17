@@ -1,14 +1,17 @@
 const input = document.getElementById('validation-input');
 const inputLength = input.getAttribute('data-length');
 
+function inputClassToggle(a, b) {
+  input.classList.add(a);
+  input.classList.remove(b);
+}
+
 input.addEventListener('blur', () => {
   const inputValue = input.value;
 
   if (inputValue.length === Number(inputLength)) {
-    input.classList.add('valid');
-    input.classList.remove('invalid');
+    inputClassToggle('valid', 'invalid');
   } else {
-    input.classList.add('invalid');
-    input.classList.remove('valid');
+    inputClassToggle('invalid', 'valid');
   }
 });
